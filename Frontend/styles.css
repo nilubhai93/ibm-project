@@ -1,0 +1,562 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(243, 241, 241);
+    color: #030000;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #56C596;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Links */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+
+
+/* Menu Toggle (Hidden by Default) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.2s;
+}
+
+.navbar a:hover {
+    color: #1abc1f;
+}
+
+.navbar .signup-btn {
+    background: #FF6B6B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 40px;
+    transition: background 0.2s;
+}
+
+.navbar .signup-btn:hover {
+    background: #E94E4E;
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #282c34;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    padding: 120px 20px 50px;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Container */
+.container {
+    text-align: center;
+}
+
+/* Playlist & Mixer Sections */
+.playlist-section,
+.mixer-section {
+    margin: 40px 0;
+}
+
+/* Playlist Section */
+.playlist-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Playlist & Mixer Button */
+.playlist-button,
+.mixer-button {
+    background: #48c9b0;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.playlist-button:hover {
+    background: #1abc9c;
+    transform: translateY(-2px);
+}
+
+/* Playlist Options */
+.playlist-options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.playlist-options>div>i {
+    color: #48c9b0;
+}
+
+.playlist-options>div:hover>i {
+    color: #ff0000;
+    /* Replace with your desired hover color */
+}
+
+
+/* Option Items */
+.option {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 15px 20px;
+    width: 80px;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .playlist-section {
+        width: 90%;
+    }
+
+    .playlist-options {
+        gap: 0.5rem;
+    }
+
+    .option {
+        width: 70px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .playlist-section {
+        padding: 15px;
+    }
+
+    .playlist-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .option {
+        width: 80px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+}
+
+
+
+/* Sound Icons */
+.sound-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px 20px;
+    width: 160px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.icon:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.icon input[type="range"] {
+    position: absolute;
+    width: 80%;
+    bottom: 10px;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+.icon.show-slider input[type="range"] {
+    display: block;
+}
+
+
+
+.favorites-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #ccc;
+}
+
+.save-favorite-button {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+}
+
+.save-favorite-button:hover {
+    background: #1976D2;
+}
+
+.favorite-playlists {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.favorite-item {
+    background: #eee;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.favorite-item:hover {
+    background: #ccc;
+}
+
+.delete-button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+    }
+
+    .navbar a {
+        margin: 5px 0;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cta-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .icon {
+        width: 130px;
+        height: 100px;
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icon {
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+
+    .playlist-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .option {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+
+
+.footer-container {
+    background-color: #f7f7f7;
+    padding: 2rem 5%;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-column h4 {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.footer-column a {
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 200px;
+}
+
+.app-buttons img {
+    max-height: 40px;
+    width: auto;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #f7f7f7;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.footer-bottom-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-left a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-left a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-bottom-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-bottom-right a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-right a:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        margin-right: 40px;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-bottom-left,
+    .footer-bottom-right {
+        flex-direction: column;
+        align-items: center;
+    }
+}

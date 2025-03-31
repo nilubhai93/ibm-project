@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Relaxing Sound Mixer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">My Relax</div>
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <nav class="nav-links">
+            <a href="./nav/howitWork.html">How It Works</a>
+            <a href="./nav/features.html">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="./loginAndSignup/login.html">Log In</a>
+            <a href="./loginAndSignup/Signup.html" class="signup-btn">Sign Up</a>
+        </nav>
+    </header>
+    <main class="hero">
+        <h1>Your digital place for calm and focus.</h1>
+        <p>Mix different ambient noises and create your perfect soundscape for work, sleep, and relax.</p>
+        <div class="container">
+            <div class="playlist-section">
+                <button class="playlist-button">🎵 Listen to this Playlist</button>
+                <div class="playlist-options">
+                    <div class="option" data-playlist="sleep">
+                        <i class="fas fa-bed"></i><br> Sleep
+                    </div>
+                    <div class="option" data-playlist="productivity">
+                        <i class="fas fa-briefcase"></i><br> Productivity
+                    </div>
+                    <div class="option" data-playlist="random">
+                        <i class="fas fa-dice"></i><br> Random
+                    </div>
+                    <div class="option" data-playlist="relax">
+                        <i class="fas fa-spa"></i><br> Relax
+                    </div>
+                    <div class="option" data-playlist="noise-blocker">
+                        <i class="fas fa-volume-mute"></i><br> Noise Blocker
+                    </div>
+                </div>
+                <br>
+                <audio id="audioPlayer" controls></audio>
+                <div class="current-track"></div>
+            </div>
+            <div class="mixer-section">
+                <button class="mixer-button">Try to mix and match the sounds</button>
+                <div class="sound-icons">
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Rain)"><p>Rain</p>🌧️<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Thunder)"><p>Thunder</p> ⛈️<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Wind)"><p>Wind</p> 💨<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Nature)"><p>Nature</p> 🌲<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Bird)"><p>Bird</p> 🐦 <input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Fire)"><p>Fire</p> 🔥<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Waves)"><p>Waves</p> 🌊<input type="range" min="0" max="100" value="50"></div>
+                    <div class="icon" tabindex="0" onclick="toggleSlider(Train)"><p>Train</p> 🚂<input type="range" min="0" max="100" value="50"></div>
+                </div>
+                <!-- New Favorite Section -->
+                <div class="favorites-section">
+                    <button class="save-favorite-button" onclick="saveFavorite()">Save Favorite</button>
+                    <h3>Your Favorites</h3>
+                    <div class="favorite-playlists" id="favoritePlaylists">
+                        <!-- Favorite playlists will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <a href="#">About Us</a>
+                <a href="#">Jobs</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h4>PRODUCT</h4>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Apps</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-column">
+                <h4>MORE</h4>
+                <a href="#">Education</a>
+                <a href="#">Work</a>
+                <a href="#">Affiliate Program</a>
+            </div>
+            <div class="footer-column">
+                <h4>RESOURCES</h4>
+                <a href="#">Blog</a>
+                <a href="#">How it Works</a>
+            </div>
+            <div class="footer-column">
+                <h4>GET THE APPS</h4>
+                <div class="app-buttons">
+                    <img src="https://w7.pngwing.com/pngs/314/368/png-transparent-itunes-app-store-apple-logo-apple-text-rectangle-logo.png"
+                        alt="App Store">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/800px-Google_Play_Store_badge_EN.svg.png"
+                        alt="Google Play">
+                    <img src="https://developer.chrome.com/static/docs/webstore/branding/image/YT2Grfi9vEBa2wAPzhWa.png"
+                        alt="Chrome Web Store">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <div class="footer-bottom-left">
+            <span>© 2025 MyRelux.com</span>
+            <a href="#">Terms & Privacy</a>
+            <a href="#">Impressum</a>
+            <a href="#">Cookie settings</a>
+        </div>
+        <div class="footer-bottom-right">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

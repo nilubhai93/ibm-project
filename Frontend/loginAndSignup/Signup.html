@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(194, 189, 189);
+        }
+        
+        .container {
+            border-radius: 15px;
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+        }
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #3498db;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #333;
+            opacity: 0.7;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #3498db;
+        }
+
+        .form-group input.error {
+            border-color: #e74c3c;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-link {
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: #2ecc71;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Create Account</h1>
+            <p>Sign up to get started</p>
+        </div>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" required placeholder="Enter your full name">
+                <div id="name-error" class="error-message">Please enter your full name</div>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email Address</label>
+                <input type="email" id="signup-email" required placeholder="Enter your email">
+                <div id="email-error" class="error-message">Please enter a valid email address</div>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" required placeholder="Create a strong password">
+                <div id="password-error" class="error-message">Password must be at least 8 characters long</div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" required placeholder="Confirm your password">
+                <div id="confirm-password-error" class="error-message">Passwords do not match</div>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+            
+            <a href="login.html" class="login-link">
+                Already have an account? Log In
+            </a>
+        </form>
+    </div>
+
+    <script>
+        // Form elements
+        const signupForm = document.getElementById('signup-form');
+        const signupNameInput = document.getElementById('signup-name');
+        const signupEmailInput = document.getElementById('signup-email');
+        const signupPasswordInput = document.getElementById('signup-password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+
+        // Error message elements
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Function to show error message
+        function showError(inputElement, errorElement) {
+            inputElement.classList.add('error');
+            errorElement.style.display = 'block';
+        }
+
+        // Function to hide error message
+        function hideError(inputElement, errorElement) {
+            inputElement.classList.remove('error');
+            errorElement.style.display = 'none';
+        }
+
+        // Signup form submission
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Reset previous errors
+            [nameError, emailError, passwordError, confirmPasswordError].forEach(el => el.style.display = 'none');
+            [signupNameInput, signupEmailInput, signupPasswordInput, confirmPasswordInput].forEach(el => el.classList.remove('error'));
+
+            let isValid = true;
+
+            // Name validation
+            if (!signupNameInput.value.trim()) {
+                showError(signupNameInput, nameError);
+                isValid = false;
+            }
+
+            // Email validation
+            if (!emailRegex.test(signupEmailInput.value)) {
+                showError(signupEmailInput, emailError);
+                isValid = false;
+            }
+
+            // Password validation
+            if (signupPasswordInput.value.length < 8) {
+                showError(signupPasswordInput, passwordError);
+                isValid = false;
+            }
+
+            // Confirm password validation
+            if (signupPasswordInput.value !== confirmPasswordInput.value) {
+                showError(confirmPasswordInput, confirmPasswordError);
+                isValid = false;
+            }
+
+            // If all validations pass
+            if (isValid) {
+                // In a real application, you would send the data to a server
+                console.log('Signup successful');
+                // Optionally, you could redirect to a welcome page or dashboard
+                // window.location.href = '/dashboard';
+            }
+        });
+
+        // Real-time validation
+        signupNameInput.addEventListener('input', () => {
+            if (signupNameInput.value.trim()) {
+                hideError(signupNameInput, nameError);
+            }
+        });
+
+        signupEmailInput.addEventListener('input', () => {
+            if (emailRegex.test(signupEmailInput.value)) {
+                hideError(signupEmailInput, emailError);
+            }
+        });
+
+        signupPasswordInput.addEventListener('input', () => {
+            if (signupPasswordInput.value.length >= 8) {
+                hideError(signupPasswordInput, passwordError);
+            }
+        });
+
+        confirmPasswordInput.addEventListener('input', () => {
+            if (signupPasswordInput.value === confirmPasswordInput.value) {
+                hideError(confirmPasswordInput, confirmPasswordError);
+            }
+        });
+    </script>
+</body>
+</html>
